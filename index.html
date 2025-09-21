@@ -6,550 +6,140 @@
   <title>Thet Education — Educación Digital</title>
   <meta name="description" content="Thet Education: cursos prácticos de ChatGPT, marketing digital y diseño con Canva. Transformá tu futuro con habilidades digitales." />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Thet Education — Educación Digital">
-  <meta property="og:description" content="Domina ChatGPT, marketing digital y diseño con nuestros cursos prácticos. ¡Inscribite hoy!">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1526378728072-8b320a1ce6aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60">
-  <meta property="og:type" content="website">
 
   <style>
     :root{
       --white: #ffffff;
       --black: #000000;
       --muted: #6b6b6b;
-      --accent: #0066ff; /* azul eléctrico (podés cambiar a rojo si preferís) */
-      --accent-2: #ff2d2d; /* secundario para variación */
+      --accent: #0066ff;
+      --accent-2: #ff2d2d;
       --whatsapp: #25D366;
       --radius: 12px;
       --maxwidth: 1100px;
       --base-pad: 24px;
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--white);
-      color:var(--black);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
+    body{margin:0;font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);line-height:1.45}
+    .container{max-width:var(--maxwidth);margin:0 auto;padding:0 var(--base-pad)}
 
-    a{color:inherit; text-decoration:none}
+    header{border-bottom:1px solid rgba(0,0,0,0.06);background:var(--white);position:sticky;top:0;z-index:60}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo-mark{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#fff;background:linear-gradient(135deg,var(--accent),#00d1ff)}
+    .brand-title .title{font-size:20px;font-weight:800}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600}
+    .btn{padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+    .btn-outline{border:1px solid rgba(0,0,0,0.08);color:var(--black);background:transparent}
 
-    /* Layout container */
-    .container{
-      max-width: var(--maxwidth);
-      margin: 0 auto;
-      padding: 0 var(--base-pad);
-    }
+    .hero{display:grid;grid-template-columns:1fr 480px;gap:40px;align-items:center;padding:48px 0}
+    .hero-left h1{margin:0 0 14px 0;font-size:44px;font-weight:800}
+    .hero-left p.lead{margin:0 0 22px 0;color:var(--muted);font-size:18px}
+    .hero-right{border-radius:16px;overflow:hidden;min-height:320px;box-shadow:0 12px 40px rgba(3,10,30,0.06)}
+    .hero-right img{width:100%;height:100%;object-fit:cover}
 
-    /* Header */
-    header{
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      background: var(--white);
-      position: sticky;
-      top:0;
-      z-index:60;
-      backdrop-filter: blur(6px);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .logo-mark{
-      width:56px;
-      height:56px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:20px;
-      color:var(--white);
-      background: linear-gradient(135deg,var(--accent), #00d1ff);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
-    .brand-title{
-      display:flex;
-      flex-direction:column;
-      line-height:1;
-    }
-    .brand-title .title{
-      font-size:20px;
-      font-weight:800;
-      letter-spacing:-0.4px;
-    }
-    .brand-title .tag{
-      font-size:12px;
-      color:var(--muted);
-    }
+    .section{padding:48px 0}
+    .section h2{margin:0 0 12px;font-size:28px;font-weight:800}
+    .section p.lead{color:var(--muted);margin:0 0 28px}
 
-    nav ul{
-      display:flex;
-      gap:18px;
-      list-style:none;
-      margin:0;
-      padding:0;
-      align-items:center;
-    }
-    nav a.nav-link{
-      padding:8px 10px;
-      font-weight:600;
-      color:var(--black);
-    }
+    .courses-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .course{border-radius:14px;padding:18px;background:rgba(0,0,0,0.02);box-shadow:0 6px 22px rgba(3,10,30,0.03)}
 
-    .cta-top{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border-radius:10px;
-      font-weight:700;
-      cursor:pointer;
-      border: none;
-      text-decoration:none;
-    }
-    .btn-primary{
-      background: linear-gradient(90deg,var(--accent), var(--accent-2));
-      color:var(--white);
-      box-shadow: 0 10px 25px rgba(2, 56, 230, 0.12);
-    }
-    .btn-outline{
-      background:transparent;
-      color:var(--black);
-      border: 1px solid rgba(0,0,0,0.08);
-      padding:8px 14px;
-      border-radius:8px;
-      font-weight:600;
-    }
+    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .testimonial{padding:16px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 22px rgba(3,10,30,0.04);display:flex;gap:12px}
+    .avatar{width:56px;height:56px;border-radius:50%;overflow:hidden;flex-shrink:0}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .who{font-weight:700;margin-top:6px}
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 480px;
-      gap:40px;
-      align-items:center;
-      padding:48px 0;
-    }
-    .hero-left h1{
-      margin:0 0 14px 0;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-0.6px;
-      font-weight:800;
-    }
-    .hero-left p.lead{
-      margin:0 0 22px 0;
-      color:var(--muted);
-      font-size:18px;
-      max-width:58ch;
-    }
-    .hero-cta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .hero-right{
-      border-radius:16px;
-      overflow:hidden;
-      min-height:320px;
-      box-shadow: 0 12px 40px rgba(3,10,30,0.06);
-      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero-right img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    /* Courses */
-    .section{
-      padding:48px 0;
-    }
-    .section h2{
-      margin:0 0 12px 0;
-      font-size:28px;
-      font-weight:800;
-    }
-    .section p.lead{
-      color:var(--muted);
-      margin:0 0 28px 0;
-    }
-
-    .courses-grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:18px;
-    }
-    .course{
-      border-radius:14px;
-      padding:18px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
-      box-shadow: 0 6px 22px rgba(3,10,30,0.03);
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-    }
-    .course .course-meta{
-      flex:1;
-    }
-    .course h3{
-      margin:0 0 8px 0;
-      font-size:18px;
-    }
-    .course p{
-      margin:0 0 10px 0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .course ul{
-      margin:0 0 12px 18px;
-      padding:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .price{
-      font-weight:800;
-      font-size:18px;
-      margin-bottom:10px;
-    }
-
-    /* Testimonials */
-    .testimonials{
-      display:grid;
-      grid-template-columns: repeat(2,1fr);
-      gap:16px;
-    }
-    .testimonial{
-      padding:16px;
-      border-radius:12px;
-      background: #fff;
-      border:1px solid rgba(0,0,0,0.04);
-      box-shadow: 0 8px 22px rgba(3,10,30,0.04);
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-    }
-    .avatar{
-      width:56px;
-      height:56px;
-      border-radius:50%;
-      overflow:hidden;
-      flex-shrink:0;
-      background:#eee;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      color:var(--black);
-    }
-    .testimonial p{margin:0;color:var(--muted)}
-    .testimonial .who{font-weight:700;margin-top:6px}
-
-    /* Footer */
-    footer{
-      border-top:1px solid rgba(0,0,0,0.06);
-      padding:28px 0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .footer-grid{
-      display:flex;
-      gap:20px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .socials a{margin-right:12px; font-weight:700; color:var(--black)}
-
-    /* WhatsApp Floating Button */
-    .whatsapp-fab{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:120;
-      background: linear-gradient(180deg,var(--whatsapp), #1ebea4);
-      color:white;
-      border-radius:999px;
-      padding:12px 16px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      box-shadow: 0 14px 40px rgba(37,211,102,0.18);
-      text-decoration:none;
-      font-weight:700;
-    }
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr; padding:28px 0; gap:22px}
-      .courses-grid{grid-template-columns:1fr}
-      .testimonials{grid-template-columns:1fr}
-      .brand-title .title{font-size:18px}
-      .hero-left h1{font-size:34px}
-    }
-    @media (max-width:520px){
-      .nav ul{display:none}
-      .brand-title .tag{display:none}
-      .logo-mark{width:48px;height:48px;font-size:18px}
-      .hero-left h1{font-size:28px}
-      .container{padding:0 16px}
-    }
-
+    footer{border-top:1px solid rgba(0,0,0,0.06);padding:28px 0;color:var(--muted);font-size:14px}
+    .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+    .whatsapp-fab{position:fixed;right:18px;bottom:18px;z-index:120;background:linear-gradient(180deg,var(--whatsapp),#1ebea4);color:white;border-radius:999px;padding:12px 16px;font-weight:700;text-decoration:none}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.courses-grid{grid-template-columns:1fr}.testimonials{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-  <!-- WhatsApp floating link - número sin signo + y mensaje URL encoded -->
-  <a class="whatsapp-fab" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20los%20cursos%20de%20Thet%20Education!" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 .02 5.36.02 12.01c0 2.12.55 4.17 1.6 5.99L0 24l5.29-1.38A11.96 11.96 0 0 0 12 24c6.63 0 12-5.36 12-11.99 0-3.2-1.25-6.21-3.48-8.53z" fill="#fff"/></svg>
-    WhatsApp
-  </a>
+<a class="whatsapp-fab" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme!" target="_blank">WhatsApp</a>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo-mark" aria-hidden>thet</div>
-        <div class="brand-title">
-          <div class="title">Thet Education</div>
-          <div class="tag">Transforma tu futuro con habilidades digitales</div>
-        </div>
-      </div>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo-mark">thet</div>
+      <div class="brand-title"><div class="title">Thet Education</div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="cta-top">
+      <a class="btn btn-outline" href="#cursos">Ver Cursos</a>
+      <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme!" target="_blank">¡Comenzá Ahora!</a>
+    </div>
+  </div>
+</header>
 
-      <nav aria-label="Menú principal">
-        <ul>
-          <li><a class="nav-link" href="#inicio">Inicio</a></li>
-          <li><a class="nav-link" href="#cursos">Cursos</a></li>
-          <li><a class="nav-link" href="#testimonios">Testimonios</a></li>
-          <li><a class="nav-link" href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <div class="cta-top">
-        <a class="btn btn-outline" href="#cursos">Ver Cursos</a>
-        <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20los%20cursos%20de%20Thet%20Education!" target="_blank" rel="noopener">¡Comenzá Ahora!</a>
+<main>
+  <!-- Hero -->
+  <section id="inicio" class="container hero">
+    <div class="hero-left">
+      <h1>Thet Education</h1>
+      <p class="lead">Domina ChatGPT, marketing digital y diseño gráfico con nuestros cursos prácticos. <strong>Inscribite hoy y transformá tu futuro.</strong></p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme!" target="_blank">¡Comenzá Ahora!</a>
+        <a class="btn btn-outline" href="#cursos">Ver programas</a>
       </div>
     </div>
-  </header>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Tecnología y aprendizaje">
+    </div>
+  </section>
 
-  <main>
-    <section id="inicio" class="container hero" aria-labelledby="hero-title">
-      <div class="hero-left">
-        <h1 id="hero-title">Thet Education</h1>
-        <p class="lead">Domina ChatGPT, marketing digital y diseño gráfico con nuestros cursos prácticos. <strong>Inscribite hoy y transformá tu futuro.</strong></p>
-
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20los%20cursos%20de%20Thet%20Education!" target="_blank" rel="noopener">¡Comenzá Ahora!</a>
-          <a class="btn btn-outline" href="#cursos">Ver programas</a>
-        </div>
-
-        <p style="margin-top:18px; color:var(--muted); font-size:13px">Sugerencia de imagen de fondo del hero: una foto tecnológica/educativa (por ejemplo: un aula digital, laptop con código o una pantalla con gráficas). Recursos: Unsplash - búsqueda: "technology learning", "online course".</p>
+  <!-- Testimonios -->
+  <section id="testimonios" class="container section">
+    <h2>Testimonios</h2>
+    <p class="lead">Historias reales de alumnos que ya transformaron su proyecto o negocio.</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Ana"></div>
+        <div><p>"Gracias a Thet Education tripliqué mis ventas con marketing digital."</p><div class="who">Ana, emprendedora</div></div>
       </div>
-
-      <div class="hero-right" aria-hidden>
-        <!-- Imagen sugerida - reemplazar por imagen propia -->
-        <img src="https://images.unsplash.com/photo-1526378728072-8b320a1ce6aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=60" alt="Tecnología y aprendizaje" />
+      <div class="testimonial">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Martín"></div>
+        <div><p>"Con el curso de ChatGPT básico pude automatizar respuestas y ahorrar horas."</p><div class="who">Martín, community manager</div></div>
       </div>
-    </section>
-
-    <!-- Cursos -->
-    <section id="cursos" class="container section" aria-labelledby="cursos-title">
-      <h2 id="cursos-title">Nuestros Cursos</h2>
-      <p class="lead">Cursos diseñados para que aprendas rápido y con resultados reales. Modalidad práctica, ejercicios reales y soporte.</p>
-
-      <div class="courses-grid" role="list">
-        <!-- ChatGPT Básico -->
-        <article class="course" role="listitem" aria-labelledby="chatbasic-title">
-          <div class="course-meta">
-            <h3 id="chatbasic-title">ChatGPT Básico: Tu Puerta al Futuro de la IA</h3>
-            <p>Curso para principiantes que te enseña a usar ChatGPT para automatizar tareas, generar contenido y ahorrar tiempo.</p>
-
-            <ul>
-              <li>Aprendé a crear prompts efectivos.</li>
-              <li>Usá ChatGPT para redes sociales y posts.</li>
-              <li>Soporte personalizado y ejercicios prácticos.</li>
-            </ul>
-
-            <div class="price">Precio sugerido: accesible</div>
-            <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20ChatGPT%20B%C3%A1sico%20en%20Thet%20Education!" target="_blank" rel="noopener">Inscribirme</a>
-          </div>
-        </article>
-
-        <!-- ChatGPT Avanzado -->
-        <article class="course" role="listitem" aria-labelledby="chatpro-title">
-          <div class="course-meta">
-            <h3 id="chatpro-title">PromptMaster Pro: ChatGPT Avanzado</h3>
-            <p>Curso para usuarios intermedios/avanzados. Aprendé a crear prompts avanzados, integrar la IA en procesos y maximizar resultados.</p>
-
-            <ul>
-              <li>Creá chatbots personalizados.</li>
-              <li>Integramos ChatGPT en flujos de trabajo reales.</li>
-              <li>Optimización y automatización de procesos complejos.</li>
-            </ul>
-
-            <div class="price">Precio sugerido: nivel pro</div>
-            <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20PromptMaster%20Pro%20en%20Thet%20Education!" target="_blank" rel="noopener">Inscribirme</a>
-          </div>
-        </article>
-
-        <!-- Marketing Digital -->
-        <article class="course" role="listitem" aria-labelledby="mkt-title">
-          <div class="course-meta">
-            <h3 id="mkt-title">Estrategias Digitales Imparables para tu Negocio</h3>
-            <p>Curso completo de marketing digital: SEO, redes sociales, anuncios y email marketing para escalar tu negocio.</p>
-
-            <ul>
-              <li>Creamos campañas en Google Ads y Facebook Ads.</li>
-              <li>Dominar Instagram y TikTok para convertir seguidores en clientes.</li>
-              <li>Email marketing y funnels que venden.</li>
-            </ul>
-
-            <div class="price">Precio sugerido: competitivo</div>
-            <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20Marketing%20Digital%20en%20Thet%20Education!" target="_blank" rel="noopener">Inscribirme</a>
-          </div>
-        </article>
-
-        <!-- Canva -->
-        <article class="course" role="listitem" aria-labelledby="canva-title">
-          <div class="course-meta">
-            <h3 id="canva-title">Crea Diseños Profesionales con Canva sin Esfuerzo</h3>
-            <p>Aprendé a diseñar contenido visual impactante: posts, logos, y presentaciones aunque no seas diseñador.</p>
-
-            <ul>
-              <li>Plantillas personalizables y prácticas de branding.</li>
-              <li>Técnicas para lograr impacto visual en redes.</li>
-              <li>Exportar y optimizar para diferentes plataformas.</li>
-            </ul>
-
-            <div class="price">Precio sugerido: accesible</div>
-            <a class="btn btn-primary" href="https://wa.me/541165613013?text=¡Quiero%20inscribirme%20en%20Canva%20en%20Thet%20Education!" target="_blank" rel="noopener">Inscribirme</a>
-          </div>
-        </article>
+      <div class="testimonial">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Laura"></div>
+        <div><p>"El curso de Canva me ayudó a crear identidad visual en una semana."</p><div class="who">Laura, diseñadora independiente</div></div>
       </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section id="testimonios" class="container section" aria-labelledby="testi-title">
-      <h2 id="testi-title">Testimonios</h2>
-      <p class="lead">Historias reales de alumnos que ya transformaron su proyecto o negocio.</p>
-
-      <div class="testimonials" role="list">
-        <div class="testimonial" role="listitem">
-          <div class="avatar" aria-hidden>
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Ana" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div>
-            <p>"Gracias a Thet Education tripliqué mis ventas con marketing digital en 3 meses. El contenido es práctico y aplicable."</p>
-            <div class="who">Ana, emprendedora</div>
-          </div>
-        </div>
-
-        <div class="testimonial" role="listitem">
-          <div class="avatar" aria-hidden>
-            <img src="https://images.unsplash.com/photo-1545996124-6b3b9ab0b5b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Martín" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div>
-            <p>"Con el curso de ChatGPT básico pude automatizar respuestas y ahorro horas en la creación de contenido."</p>
-            <div class="who">Martín, community manager</div>
-          </div>
-        </div>
-
-        <div class="testimonial" role="listitem">
-          <div class="avatar" aria-hidden>
-            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Laura" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div>
-            <p>"El curso de Canva me ayudó a crear identidad visual en una semana. Ahora mis publicaciones se ven profesionales."</p>
-            <div class="who">Laura, diseñadora independiente</div>
-          </div>
-        </div>
-
-        <div class="testimonial" role="listitem">
-          <div class="avatar" aria-hidden>
-            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Juan" style="width:100%;height:100%;object-fit:cover">
-          </div>
-          <div>
-            <p>"Los ejemplos prácticos y el soporte fueron clave. Recomendado para quien quiere resultados rápidos."</p>
-            <div class="who">Juan, dueño de tienda online</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="container section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contacto</h2>
-      <p class="lead">¿Querés más info o querés recibir el plan de estudios por WhatsApp? Contactanos.</p>
-
-      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
-        <a class="btn btn-primary" href="https://wa.me/541165613013?text=Hola%20Thet%20Education%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20cursos." target="_blank" rel="noopener">Contactar por WhatsApp</a>
-        <a class="btn btn-outline" href="mailto:info@thet.education">info@thet.education</a>
-      </div>
-
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div style="font-weight:800">Thet Education</div>
-        <div style="margin-top:6px; color:var(--muted)">Capacítate para el futuro digital.</div>
-      </div>
-
-      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-        <div class="socials">
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
-        </div>
-
-        <div style="text-align:right">
-          <div>WhatsApp: <a href="https://wa.me/541165613013" target="_blank" rel="noopener">+54 11 6561-3013</a></div>
-          <div>Email: <a href="mailto:info@thet.education">info@thet.education</a></div>
-        </div>
+      <div class="testimonial">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Foto de Juan"></div>
+        <div><p>"Los ejemplos prácticos y el soporte fueron clave."</p><div class="who">Juan, dueño de tienda online</div></div>
       </div>
     </div>
+  </section>
+</main>
 
-    <div class="container" style="margin-top:14px; border-top:1px solid rgba(0,0,0,0.03); padding-top:14px; text-align:center;">
-      <small style="color:var(--muted)">© <strong>Thet Education</strong> — Todos los derechos reservados.</small>
-    </div>
-  </footer>
+<footer>
+  <div class="container footer-grid">
+    <div><strong>Thet Education</strong><br><small>Capacítate para el futuro digital.</small></div>
+    <div>WhatsApp: <a href="https://wa.me/541165613013" target="_blank">+54 11 6561-3013</a><br>Email: <a href="mailto:info@thet.education">info@thet.education</a></div>
+  </div>
+</footer>
 
-  <!-- Small script to ensure smooth scroll and basic accessibility -->
-  <script>
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    });
-  </script>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+    })
+  })
+</script>
 
 </body>
-</html>
+  </html>
